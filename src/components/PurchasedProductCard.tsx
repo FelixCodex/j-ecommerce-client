@@ -1,34 +1,23 @@
-import type { Preferences, PurchasedProduct } from "../types";
+import type { Preferences, ProgressDataI, PurchasedProduct } from "../types";
 import { IMG_API_URL, LANGUAGE } from "../consts";
 import { createDateTextFromLanguage } from "../utils";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { RefreshCw, X } from "lucide-react";
-import { download } from "../Api/download";
+import { useDownload } from "../hooks/useDownload";
 
 interface ProductCardProps {
   product: PurchasedProduct;
   preferences: Preferences;
 }
 
-const initialProgressDataState = {
-  progress: 0,
-  speed: 0,
-  estTime: 0,
-};
-
-const initialLastRecordState = { loaded: 0, time: 0 };
-const initialWeightState = { loaded: 0, total: 0 };
-
 export function PurchasedProductCard({
   product,
   preferences,
 }: ProductCardProps) {
   const date = new Date(product.purchased_at);
-
-  const lastRecord = useRef(initialLastRecordState);
-  const [progressData, setProgressData] = useState(initialProgressDataState);
-  const [weightData, setWeightData] = useState(initialWeightState);
+  const { progressData, startDownload } = useDownload();
   const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadData, setDownloadData] = useState<ProgressDataI | null>(null);
   const [error, setError] = useState<string | null>(null);
   const controller = useRef<AbortController | null>(null);
 
@@ -37,58 +26,14 @@ export function PurchasedProductCard({
     setError(null);
     controller.current = new AbortController();
     try {
-      const res = await download(
-        product.id,
-        controller.current,
-        (progressEvent) => {
-          const loaded = progressEvent.loaded;
-          const total = progressEvent.total
-            ? progressEvent.total
-            : progressEvent.loaded;
-          const actualTime = new Date().getTime();
-
-          const percentCompleted = Math.round((loaded * 100) / total);
-
-          const timePassed = (actualTime - lastRecord.current.time) / 1000;
-          const bitesUploaded =
-            progressEvent.loaded - lastRecord.current.loaded;
-
-          const speed = bitesUploaded / timePassed;
-
-          const rest = Math.floor(total - loaded);
-
-          const estimatedTime = rest / speed;
-          console.log(progressEvent.loaded);
-
-          lastRecord.current = { loaded, time: actualTime };
-
-          setWeightData({ loaded, total });
-          setProgressData({
-            progress: percentCompleted,
-            speed,
-            estTime: estimatedTime,
-          });
-        }
-      );
-      if (!res) return;
-
-      const blob = new Blob([res.data], { type: "application/zip" });
-      const url = window.URL.createObjectURL(blob);
-
-      const link = document.createElement("a");
-      link.href = url;
-      console.log(res);
-      link.download = `${product.title}.zip`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      startDownload(product.id, product.title, controller.current, () => {
+        setIsDownloading(false);
+      });
     } catch (err: any) {
       if (err.name === "AbortError" || err.name === "CanceledError") return;
       console.error(err);
       setError("Something went wrong");
-    } finally {
-      setDataToDefault();
+      setIsDownloading(false);
     }
   };
 
@@ -99,41 +44,58 @@ export function PurchasedProductCard({
 
   const setDataToDefault = () => {
     setIsDownloading(false);
-    lastRecord.current = initialLastRecordState;
-    setProgressData(initialProgressDataState);
-    setWeightData(initialWeightState);
   };
 
+  useEffect(() => {
+    const download = progressData.find((el) => el.id == product.id);
+    if (download) {
+      setDownloadData(download);
+      setIsDownloading(true);
+    } else {
+      setIsDownloading(false);
+    }
+  }, [progressData, product.id]);
+
   const estimatedTime = useCallback(() => {
-    const data = progressData.estTime;
-    return `${Math.floor(
-      data > 60 ? (data > 3600 ? data / 3600 : data / 60) : data
-    )}${data > 60 ? (data > 3600 ? "h" : "m") : "s"}`;
-  }, [progressData]);
+    const data = downloadData?.estTime;
+    if (!data) return "0s";
+    return `${(data > 60
+      ? data > 3600
+        ? data / 3600
+        : data / 60
+      : data
+    ).toFixed(0)}${data > 60 ? (data > 3600 ? "h" : "m") : "s"}`;
+  }, [downloadData]);
 
   const velocity = useCallback(() => {
-    const data = progressData.speed;
-    return `${Math.floor(
-      data > 1000 ? (data > 1000000 ? data / 1000000 : data / 1000) : data
-    )}${data > 1000 ? (data > 1000000 ? "MB" : "KB") : "B"}/s`;
-  }, [progressData]);
+    const data = downloadData?.speed;
+    if (!data) return "0B/s";
+    return `${(data > 1000
+      ? data > 1000000
+        ? data / 1000000
+        : data / 1000
+      : data
+    ).toFixed(2)}${data > 1000 ? (data > 1000000 ? "MB" : "KB") : "B"}/s`;
+  }, [downloadData]);
 
   const loaded = useCallback(() => {
-    const data = weightData.loaded;
+    const data = downloadData?.loaded;
+    if (!data) return "0MB";
     return `${(data > 1000000000 ? data / 1000000000 : data / 1000000).toFixed(
       2
     )}${data > 1000000000 ? "GB" : "MB"}`;
-  }, [weightData]);
+  }, [downloadData]);
 
   const total = useCallback(() => {
-    const data = weightData.total;
+    const data = downloadData?.total;
+    if (!data) return "0MB";
     return `${(data > 1000000000 ? data / 1000000000 : data / 1000000).toFixed(
       2
     )}${data > 1000000000 ? "GB" : "MB"}`;
-  }, [weightData]);
+  }, [downloadData]);
 
   return (
-    <div className="border border-[--border_light_400] rounded-lg p-4">
+    <div className="border border-[--border_light_400] hover:shadow-md transition-[box-shadow] rounded-lg p-4">
       <img
         src={`${IMG_API_URL}${product.image}.webp`}
         alt={product.title}
@@ -163,15 +125,21 @@ export function PurchasedProductCard({
           <div className="w-full h-[3.75rem] rounded-lg">
             <div className="w-full h-10 bg-[--bg_light_400] shadow-inner shadow-[--bg_light_300] rounded-lg">
               <div
-                className="bg-[--button_purchased] shadow-inner shadow-[#ca3662] max-w-full flex items-center justify-end h-10 rounded-lg"
-                style={{ width: `${progressData.progress}%` }}
+                className="bg-[--button_purchased] shadow-inner transition-[width] shadow-[#ca3662] max-w-full flex items-center justify-end h-10 rounded-lg"
+                style={{
+                  width: `${downloadData ? downloadData.progress : 0}%`,
+                }}
               >
                 <p
                   className={`text-lg font-medium text-[--text_light_900] ${
-                    progressData.progress > 10 ? "mr-3" : "-mr-8"
+                    downloadData
+                      ? downloadData.progress > 10
+                        ? "mr-3"
+                        : "-mr-8"
+                      : "mr-3"
                   }`}
                 >
-                  {`${progressData.progress}%`}
+                  {`${downloadData ? downloadData.progress : 0}%`}
                 </p>
               </div>
             </div>

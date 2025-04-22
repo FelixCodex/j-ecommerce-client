@@ -18,6 +18,22 @@ export interface Product {
   weight: number;
 }
 
+export type LastRecordI = {
+  id: string;
+  loaded: number;
+  time: number;
+};
+export type ProgressDataI = {
+  id: string;
+  title: string;
+  progress: number;
+  speed: number;
+  estTime: number;
+  loaded: number;
+  total: number;
+  controller: AbortController;
+};
+
 export type PayMethods = "tpp" | "qvapay" | "asd";
 
 export interface CartProduct {

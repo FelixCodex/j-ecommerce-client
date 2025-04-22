@@ -2,6 +2,7 @@ import { AuthProvider } from "./context/auth.context.tsx";
 import { CartProvider } from "./context/cart.context.tsx";
 import { ChatProvider } from "./context/chat.context.tsx";
 import { CommentProvider } from "./context/comments.context.tsx";
+import { DownloadProvider } from "./context/download.context.tsx";
 import { ProductProvider } from "./context/products.context.tsx";
 import { UtilsProvider } from "./context/utils.context.tsx";
 import "./hooks/useLazyLoading.tsx";
@@ -15,7 +16,9 @@ function App() {
           <ProductProvider>
             <CommentProvider>
               <UtilsProvider>
-                <AppRouter></AppRouter>
+                <DownloadProvider>
+                  <AppRouter></AppRouter>
+                </DownloadProvider>
               </UtilsProvider>
             </CommentProvider>
           </ProductProvider>

@@ -7,6 +7,7 @@ import { useUtils } from "../hooks/useUtils.tsx";
 import { BRANDNAME, LANGUAGE, POSITIONS } from "../consts.ts";
 import { useAuth } from "../hooks/useAuth.tsx";
 import { usePreferences } from "../hooks/usePreferences.tsx";
+import { DownloadNav } from "./DownloadNav.tsx";
 
 const PlacesUser: string[] = ["/login", "/register", "/cart", "/checkout"];
 
@@ -46,7 +47,7 @@ export function Navbar() {
   }, [location]);
 
   return (
-    <nav className=" fixed top-0 z-[400] w-full bg-[--bg_sec]">
+    <nav className="fixed top-0 z-[400] w-full bg-[--bg_sec]">
       <div className="mx-auto px-4 bg-[--bg_sec] w-full relative z-20">
         <div className="flex justify-between items-center h-16">
           <Link
@@ -138,6 +139,7 @@ export function Navbar() {
           </Link>
         </div>
       </div>
+      <DownloadNav></DownloadNav>
     </nav>
   );
 }
