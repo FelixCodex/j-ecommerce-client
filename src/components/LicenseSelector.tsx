@@ -88,6 +88,8 @@ export function LicenseSelector({
       className={`relative w-full flex-col p-4 rounded-xl h-fit bg-[--brand_color_900] border border-[--brand_color] ${
         isInPurchased
           ? "hidden"
+          : product.isFree
+          ? "hidden"
           : cartLicenseSelected
           ? cartLicenseSelected == license
             ? "flex shadow-md"

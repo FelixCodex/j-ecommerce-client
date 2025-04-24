@@ -127,7 +127,7 @@ export default function Contact() {
                 <div className="flex items-center mb-6">
                   <Mail className="h-5 w-5 text-[--brand_color] mr-3" />
                   <span className="text-[--text_light_0]">
-                    support@javierdavid.org
+                    support@javier-david.com
                   </span>
                 </div>
                 <div className="flex items-center mb-6">

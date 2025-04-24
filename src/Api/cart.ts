@@ -23,6 +23,14 @@ export const addProductToCartRequest = async ({
   }
 };
 
+export const getFreeRequest = async (id: string) => {
+  try {
+    return await axios.post(`/product/get/free`, { id });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const removeProductFromCartRequest = async (id: string) => {
   try {
     return await axios.post(`/cart/remove`, { id });

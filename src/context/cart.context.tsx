@@ -15,6 +15,7 @@ import {
 import {
   addProductToCartRequest,
   getCartRequest,
+  getFreeRequest,
   removeProductFromCartRequest,
 } from "../Api/cart.ts";
 import { CartProduct, License, PurchasedProduct } from "../types/index.ts";
@@ -33,6 +34,7 @@ export const CartContext = createContext({
   loadingPurchased: true,
   purchased: [] as PurchasedProduct[],
   rate: 0,
+  addPurchase: (purchase: PurchasedProduct) => {},
 });
 
 function useCartReducer() {
@@ -65,6 +67,10 @@ function useCartReducer() {
     } finally {
       setLoadingCart(false);
     }
+  };
+
+  const addPurchase = async (purchase: PurchasedProduct) => {
+    setPurchased((prev) => [...prev, purchase]);
   };
 
   const loadPurchased = async () => {
@@ -180,6 +186,7 @@ function useCartReducer() {
     loadPurchased,
     clearPurchased,
     rate,
+    addPurchase,
   };
 }
 
@@ -197,6 +204,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     loadPurchased,
     clearPurchased,
     rate,
+    addPurchase,
   } = useCartReducer();
 
   return (
@@ -214,6 +222,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         loadPurchased,
         clearPurchased,
         rate,
+        addPurchase,
       }}
     >
       {children}

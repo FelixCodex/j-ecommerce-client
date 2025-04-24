@@ -8,9 +8,10 @@ import { useAuth } from "../hooks/useAuth";
 import { usePreferences } from "../hooks/usePreferences";
 import { formatDateString } from "../utils";
 import { LicenseSelector } from "./LicenseSelector";
+import { getFreeRequest } from "../Api/cart";
 
 export function ProductLicenseSelector({ product }: { product: Product }) {
-  const { state: cart, purchased, addToCart } = useCart();
+  const { state: cart, purchased, addToCart, addPurchase } = useCart();
   const [isInCart, setIsInCart] = useState<boolean>(false);
   const [isInPurchased, setIsInPurchased] = useState<boolean>(false);
   const [loadingSubmit, setLoadingSubmit] = useState<boolean>(false);
@@ -75,6 +76,28 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
     navigate(`/checkout?i=${product.id}&l=${license}`);
   };
 
+  const handleFree = async () => {
+    setLoadingSubmit(true);
+    try {
+      const res = await getFreeRequest(product.id);
+      if (!res) throw new Error("Get free request failed");
+      if (res.status == 200) {
+        addPurchase({
+          id: res.data.productId,
+          title: res.data.title,
+          image: res.data.image,
+          purchased_at: res.data.purchased_at,
+        });
+      } else {
+        console.error("Error purchasing free product");
+      }
+    } catch (error) {
+      console.log("Error fetching get free", error);
+    } finally {
+      setLoadingSubmit(false);
+    }
+  };
+
   const cartLicenseSelected = isInCart
     ? cart.find((el) => el.id == product.id)?.license
     : null;
@@ -136,7 +159,21 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
         <button
           className={`items-center w-full justify-center gap-2 px-6 py-3 ${
             isInPurchased
-              ? "bg-[--button_purchased] hover:bg-[--button_purchased_hover] flex"
+              ? "hidden"
+              : product.isFree
+              ? "bg-[--button_cart] hover:bg-[--button_cart_hover] flex"
+              : "hidden"
+          } text-[--text_light_900] rounded-xl  transition-colors`}
+          onClick={handleFree}
+        >
+          {LANGUAGE.PRODUCT_BUTTON.ACQUIRE[preferences.language]}
+        </button>
+        <button
+          className={`items-center w-full justify-center gap-2 px-6 py-3 ${
+            isInPurchased
+              ? "bg-[--button_purchased] hover:bg-[--button_now] flex"
+              : product.isFree
+              ? "hidden"
               : isInCart
               ? "bg-[--button_cart] hover:bg-[--button_cart_hover] flex"
               : "hidden"

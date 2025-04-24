@@ -16,6 +16,7 @@ export interface Product {
   created_at: string;
   driveId: string;
   weight: number;
+  isFree: boolean;
 }
 
 export type LastRecordI = {

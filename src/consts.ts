@@ -317,6 +317,10 @@ export const LANGUAGE = {
     },
   },
   PRODUCT_BUTTON: {
+    ACQUIRE: {
+      es: "Adquirir",
+      en: "Acquire",
+    },
     DOWNLOAD: {
       es: "Descargar",
       en: "Download",
@@ -336,6 +340,10 @@ export const LANGUAGE = {
     FROM: {
       es: "Desde",
       en: "From",
+    },
+    FREE: {
+      es: "Gratis",
+      en: "Free",
     },
     LOGIN: {
       es: "Iniciar sesión",
