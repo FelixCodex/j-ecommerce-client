@@ -164,9 +164,16 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
               ? "bg-[--button_cart] hover:bg-[--button_cart_hover] flex"
               : "hidden"
           } text-[--text_light_900] rounded-xl  transition-colors`}
+          disabled={loadingSubmit}
           onClick={handleFree}
         >
-          {LANGUAGE.PRODUCT_BUTTON.ACQUIRE[preferences.language]}
+          {loadingSubmit ? (
+            <>
+              <CircleDashed className="h-5 w-5 loader" />
+            </>
+          ) : (
+            LANGUAGE.PRODUCT_BUTTON.ACQUIRE[preferences.language]
+          )}
         </button>
         <button
           className={`items-center w-full justify-center gap-2 px-6 py-3 ${
