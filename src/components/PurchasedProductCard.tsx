@@ -123,9 +123,9 @@ export function PurchasedProductCard({
       ) : isDownloading ? (
         <div className="mt-4 h-fit flex w-full rounded-lg">
           <div className="w-full h-[3.75rem] rounded-lg">
-            <div className="w-full h-10 bg-[--bg_light_400] shadow-inner shadow-[--bg_light_300] rounded-lg">
+            <div className="w-full h-10 bg-[--bg_light_400] shadow-inner shadow-[--bg_light_300] overflow-hidden rounded-lg">
               <div
-                className="bg-[--button_purchased] shadow-inner overflow-hidden transition-[width] shadow-[#ca3662] max-w-full flex items-center justify-end h-10 rounded-lg"
+                className="bg-[--button_purchased] shadow-inner transition-[width] shadow-[#ca3662] max-w-full flex items-center justify-end h-10 rounded-lg"
                 style={{
                   width: `${downloadData ? downloadData.progress : 0}%`,
                 }}
