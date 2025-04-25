@@ -178,7 +178,7 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
         <button
           className={`items-center w-full justify-center gap-2 px-6 py-3 ${
             isInPurchased
-              ? "bg-[--button_purchased] hover:bg-[--button_now] flex"
+              ? "bg-[--button_purchased] hover:bg-[--button_purchased_hover] flex"
               : product.isFree
               ? "hidden"
               : isInCart
@@ -236,7 +236,7 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
           <div className="text-[--text_light_0] text-lg flex justify-between items-center">
             <span>{LANGUAGE.PRODUCT.FORMATS[preferences.language]}</span>
             <div className="rounded-lg py-1 bg-[--bg_prim] shadow-md px-3">
-              .zip
+              .stl
             </div>
           </div>
         </div>
