@@ -35,7 +35,7 @@ export function ProductGallery({ product }: { product: Product }) {
         <img
           src={product.gallery ? `${currentImage}` : ""}
           alt={product.title}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover"
         />
       </div>
       <div className="flex">
@@ -67,7 +67,7 @@ export function ProductGallery({ product }: { product: Product }) {
                   src={`${IMG_API_URL}${image}.webp`}
                   alt={`Preview ${index + 1}`}
                   onMouseEnter={handleMouseEnter}
-                  className="w-full h-full object-contain aspect-video rounded-md border-2 border-[--border_light_500]"
+                  className="w-full h-full object-cover aspect-video rounded-md border-2 border-[--border_light_500]"
                 />
               </div>
             ))

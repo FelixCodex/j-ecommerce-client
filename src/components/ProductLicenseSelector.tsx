@@ -77,6 +77,10 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
   };
 
   const handleFree = async () => {
+    if (!logged) {
+      navigate(`/login?path=-product-${product.id}`);
+      return;
+    }
     setLoadingSubmit(true);
     try {
       const res = await getFreeRequest(product.id);

@@ -22,7 +22,7 @@ export function ProductCard({
         <img
           src={`${IMG_API_URL}${product.image}.webp`}
           alt={product.title}
-          className="w-full h-full object-contain transform rounded-t-xl transition-transform duration-200"
+          className="w-full h-full object-cover transform rounded-t-xl transition-transform duration-200"
         />
       </div>
       <div className="p-3 h-full flex justify-between">

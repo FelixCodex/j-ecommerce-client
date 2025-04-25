@@ -6,15 +6,13 @@ import { ProductLicenseSelector } from "../components/ProductLicenseSelector";
 import { ProductGallery } from "../components/ProductGallery";
 import { ProductInformationSection } from "../components/ProductInformationSection";
 import { AlertCircle } from "lucide-react";
-import { LANGUAGE } from "../consts";
-import { usePreferences } from "../hooks/usePreferences";
+import { Loading } from "./Loading";
 
 export default function Product() {
   const { products, loadingProducts } = useProduct();
 
   const [product, setProduct] = useState<ProductI | null | undefined>(null);
   const location = useLocation();
-  const { preferences } = usePreferences();
 
   useEffect(() => {
     const id = location.pathname.slice(9);
@@ -28,14 +26,7 @@ export default function Product() {
     <main className={`relative w-full flex justify-center items-center`}>
       <article className="bg-[--bg_prim] h-full w-full max-w-[100rem]">
         {loadingProducts ? (
-          <div className="w-full h-[calc(100vh-128px)] flex justify-center items-center">
-            <p className="text-4xl font-medium text-[--text_light_200] gap-2 flex items-end justify-center">
-              {LANGUAGE.PRODUCT.LOADING_PRODUCTS[preferences.language]}
-              <span className="ping-delay-1 w-[8px] mb-[5px] rounded-full h-[8px] bg-[--bg_light_200]"></span>
-              <span className="ping-delay-2 w-[8px] mb-[5px] rounded-full h-[8px] bg-[--bg_light_200]"></span>
-              <span className="ping-delay-3 w-[8px] mb-[5px] rounded-full h-[8px] bg-[--bg_light_200]"></span>
-            </p>
-          </div>
+          <Loading></Loading>
         ) : product ? (
           <section className="p-8 flex w-full gap-2">
             <div className="w-full grid grid-dis gap-6 grid-cols-1 lg:grid-cols-[1fr,var(--aside_width)]">
