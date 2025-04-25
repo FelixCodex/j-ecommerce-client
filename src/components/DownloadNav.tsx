@@ -80,7 +80,7 @@ function DownloadCard({
       <div className="flex gap-2 items-center justify-between">
         <div className="w-full h-3 bg-[--bg_light_400] rounded-full">
           <div
-            className="h-full bg-[--button_purchased] transition-[width] rounded-full"
+            className="h-full bg-[--button_purchased] overflow-hidden transition-[width] rounded-full"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
