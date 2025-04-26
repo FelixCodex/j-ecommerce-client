@@ -13,6 +13,8 @@ export function ProductCard({
   const { rate } = useCart();
   const { preferences } = usePreferences();
 
+  console.log("isFree: ", product.isFree);
+
   return (
     <div
       onClick={onClick}

@@ -95,7 +95,7 @@ function DownloadCard({
   );
 }
 
-export function DownloadNav() {
+export function DownloadNav({ className }: { className?: string }) {
   const { progressData } = useDownload();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -107,7 +107,7 @@ export function DownloadNav() {
 
   return (
     <nav
-      className={`w-full fixed justify-end px-4 pt-3 items-center ${
+      className={`${className} w-full fixed justify-end transition-[margin] duration-300 px-4 pt-3 items-center ${
         progressData.length > 0 ? "flex" : "hidden"
       }`}
     >

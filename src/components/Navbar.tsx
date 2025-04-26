@@ -139,7 +139,7 @@ export function Navbar() {
           </Link>
         </div>
       </div>
-      <DownloadNav></DownloadNav>
+      <DownloadNav className={`${mobileLinksShown && "mt-32"}`}></DownloadNav>
     </nav>
   );
 }
