@@ -6,6 +6,7 @@ interface InputInterface {
   required: boolean;
   value: string;
   setValue: (values: string) => void;
+  callingCode: string;
   setCallingCode: (values: string) => void;
   countries: { id: number; slug: string; callingCode: number }[];
 }
@@ -18,6 +19,7 @@ export function InputSelectPhone({
   disabled,
   value,
   setValue,
+  callingCode,
   setCallingCode,
   countries,
 }: InputInterface) {
@@ -34,7 +36,7 @@ export function InputSelectPhone({
           id={id}
           name={name}
           className="w-1/6 min-w-[92px] px-3 py-2 border-t border-l border-b bg-[--bg_prim] border-[--border_light_500] text-[--text_light_0] appearance-none rounded-tl-md rounded-bl-md focus:z-50 focus:outline-none focus:ring-2 focus:ring-[--brand_color]"
-          value={value}
+          value={callingCode}
           disabled={disabled}
           onChange={(e) => setCallingCode(e.target.value)}
         >
@@ -53,12 +55,14 @@ export function InputSelectPhone({
         <input
           type="number"
           value={value}
+          required={required}
           disabled={disabled}
           onChange={(e) => {
             setValue(e.target.value);
           }}
           className={`w-full px-3 py-2 bg-[--bg_prim] border-[--border_light_500] text-[--text_light_0]  [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [appearance:textfield] border rounded-tr-md rounded-br-md  focus:outline-none focus:ring-2 focus:ring-[--brand_color] `}
           placeholder="2125844128"
+          maxLength={6}
         />
       </div>
     </div>

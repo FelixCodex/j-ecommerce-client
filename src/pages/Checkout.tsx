@@ -24,6 +24,7 @@ export default function Checkout() {
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [requestErrors, setRequestErrors] = useState<string[]>([]);
   const [urlLicense, setUrlLicense] = useState<License | null>(null);
+  const [submited, setSubmited] = useState<boolean>(false);
   const [urlProduct, setUrlProduct] = useState<Product | null>(null);
   const { preferences } = usePreferences();
   const { products } = useProduct();
@@ -88,6 +89,7 @@ export default function Checkout() {
     if (loadingSubmit) return;
     setLoadingSubmit(true);
     setRequestErrors([]);
+    setSubmited(false);
 
     try {
       const {
@@ -111,7 +113,7 @@ export default function Checkout() {
         postalCode,
       };
 
-      let res = await tppPaymentLinkRequest(data);
+      let res;
 
       if (urlProduct) {
         if (urlLicense == "personal" || urlLicense == "professional") {
@@ -131,6 +133,7 @@ export default function Checkout() {
       if (res.data.error) throw new Error(res.data.error[0]);
 
       if (res.status === 200) {
+        setSubmited(true);
         window.location.href = res.data.paymentlink;
         return;
       }
@@ -204,7 +207,7 @@ export default function Checkout() {
   const isFormDisabled = urlProduct
     ? loadingSubmit
     : loadingCart || loadingSubmit || cart.length === 0;
-  const isSubmitDisabled = isFormDisabled || payMethod === null;
+  const isSubmitDisabled = isFormDisabled || payMethod === null || submited;
 
   return (
     <main className="min-h-screen-minus-64 dottedBackground py-12">
@@ -310,6 +313,7 @@ export default function Checkout() {
                           value={formData.name}
                           setValue={(value) => updateFormField("name", value)}
                           disabled={isFormDisabled}
+                          placeholder="Jhon"
                         />
                         <InputTextCheckOut
                           label={
@@ -324,6 +328,7 @@ export default function Checkout() {
                             updateFormField("lastName", value)
                           }
                           disabled={isFormDisabled}
+                          placeholder="Smith"
                         />
                         <InputSelectPhone
                           label={LANGUAGE.CHECKOUT.PHONE[preferences.language]}
@@ -331,6 +336,7 @@ export default function Checkout() {
                           name="phone"
                           required
                           value={formData.phoneNumber}
+                          callingCode={formData.callingCode}
                           setValue={(value) =>
                             updateFormField("phoneNumber", value)
                           }
@@ -359,6 +365,7 @@ export default function Checkout() {
                             updateFormField("address", value)
                           }
                           disabled={isFormDisabled}
+                          placeholder="Ave. Guadí 232, Barcelona, Barcelona"
                         />
                         <InputCountry
                           label={
@@ -386,6 +393,7 @@ export default function Checkout() {
                             value={formData.city}
                             setValue={(value) => updateFormField("city", value)}
                             disabled={isFormDisabled}
+                            placeholder="Barcelona"
                           />
                           <InputTextCheckOut
                             label={
@@ -402,6 +410,7 @@ export default function Checkout() {
                               updateFormField("postalCode", value)
                             }
                             disabled={isFormDisabled}
+                            placeholder="78622"
                           />
                         </div>
                       </>
