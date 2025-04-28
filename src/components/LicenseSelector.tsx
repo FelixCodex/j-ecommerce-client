@@ -1,5 +1,5 @@
 import { ChevronDown, CircleDashed, ShoppingCart } from "lucide-react";
-import { CircleQuestion } from "./Elements/CircleQuestion";
+import { CircleQuestion } from "./elements/CircleQuestion";
 import { LANGUAGE } from "../consts";
 import { usePreferences } from "../hooks/usePreferences";
 import { License, Product } from "../types";

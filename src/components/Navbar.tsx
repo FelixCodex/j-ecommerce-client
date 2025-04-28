@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { UserButton } from "./UserButton.tsx";
-import { HLine } from "./Elements/HLine.tsx";
+import { HLine } from "./elements/HLine.tsx";
 import { useEffect, useRef, useState } from "react";
 import { useUtils } from "../hooks/useUtils.tsx";
 import { BRANDNAME, LANGUAGE, POSITIONS } from "../consts.ts";

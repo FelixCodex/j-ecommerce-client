@@ -1,7 +1,7 @@
 import { Clock, Download, X } from "lucide-react";
 import { useDownload } from "../hooks/useDownload";
 import { useCallback, useEffect, useId, useState } from "react";
-import { SpeedMeter } from "./Elements/SpeedMeter";
+import { SpeedMeter } from "./elements/SpeedMeter";
 
 const gb = 1000000000;
 const mb = 1000000;
