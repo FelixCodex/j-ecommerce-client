@@ -159,7 +159,7 @@ export default function PaymentSuccess() {
                         <h4 className="font-medium text-[--text_light_0]">
                           {product.title}
                         </h4>
-                        <span className="font-semibold text-[--text_light_0]">
+                        <span className="font-semibold text-lg text-[--text_light_0]">
                           ${product[product.license]}
                         </span>
                       </li>
@@ -171,7 +171,7 @@ export default function PaymentSuccess() {
                       <dt className="text-lg font-medium text-[--text_light_0]">
                         {LANGUAGE.PAY_SUCCESS.AMOUNT[preferences.language]}
                       </dt>
-                      <dd className="font-semibold text-[--text_light_0]">
+                      <dd className="font-medium text-xl text-[--text_light_0]">
                         ${paymentDetails.price}
                       </dd>
                     </div>
