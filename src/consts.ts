@@ -149,6 +149,10 @@ export const LANGUAGE = {
       es: "Descargar",
       en: "Download",
     },
+    DOWNLOADS: {
+      es: "Descargas",
+      en: "Downloads",
+    },
     PURCHASED_AT: {
       es: "Comprado el",
       en: "Purchased at",

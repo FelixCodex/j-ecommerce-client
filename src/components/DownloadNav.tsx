@@ -2,6 +2,8 @@ import { Clock, Download, X } from "lucide-react";
 import { useDownload } from "../hooks/useDownload";
 import { useCallback, useEffect, useId, useState } from "react";
 import { SpeedMeter } from "./elements/SpeedMeter";
+import { LANGUAGE } from "../consts";
+import { usePreferences } from "../hooks/usePreferences";
 
 const gb = 1000000000;
 const mb = 1000000;
@@ -98,6 +100,7 @@ function DownloadCard({
 export function DownloadNav({ className }: { className?: string }) {
   const { progressData } = useDownload();
   const [isOpen, setIsOpen] = useState(false);
+  const { preferences } = usePreferences();
 
   useEffect(() => {
     if (progressData.length == 0) {
@@ -132,7 +135,8 @@ export function DownloadNav({ className }: { className?: string }) {
         >
           <div className="w-full flex justify-between items-center border-b border-[--border_light_300] p-2">
             <p className="text-lg font-medium text-[--text_light_100]">
-              Downloads ({progressData.length})
+              {LANGUAGE.DASHBOARD.DOWNLOADS[preferences.language]} (
+              {progressData.length})
             </p>
             <X
               className="h-9 w-9 p-1 text-[--text_light_50] rounded-full border border-transparent hover:shadow-md hover:hover:bg-[--bg_sec] hover:hover:border-[--border_light_400]"
