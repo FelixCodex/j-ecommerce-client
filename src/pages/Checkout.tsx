@@ -268,6 +268,7 @@ export default function Checkout() {
                     loadingSubmit={loadingSubmit}
                     loading={isSubmitDisabled}
                     disabled={isSubmitDisabled}
+                    success={submited}
                     text={LANGUAGE.CHECKOUT.PAY[preferences.language]}
                   />
                 </aside>
@@ -443,6 +444,7 @@ export default function Checkout() {
                     loadingSubmit={loadingSubmit}
                     loading={isSubmitDisabled}
                     disabled={isSubmitDisabled}
+                    success={submited}
                     text={LANGUAGE.CHECKOUT.PAY[preferences.language]}
                   />
                 </section>

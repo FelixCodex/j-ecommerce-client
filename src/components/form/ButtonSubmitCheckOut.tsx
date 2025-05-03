@@ -3,6 +3,7 @@ interface ButtonSubmitInterface {
   loadingSubmit: boolean;
   type: "submit" | "reset" | "button" | undefined;
   form?: string;
+  success?: boolean;
   loading: boolean;
   onclick?: () => void;
   disabled: boolean;
@@ -15,6 +16,7 @@ export function ButtonSubmitCheckOut({
   type,
   form,
   onclick,
+  success,
   loading,
   disabled,
   text,
@@ -39,9 +41,9 @@ export function ButtonSubmitCheckOut({
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="loader"
         >
           <path d="M10.1 2.182a10 10 0 0 1 3.8 0"></path>
@@ -53,6 +55,22 @@ export function ButtonSubmitCheckOut({
           <path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"></path>
           <path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"></path>
         </svg>
+      ) : success ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-check-circle2 h-6 w-6 text-[--good]"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
       ) : (
         <span className="flex row align-center">
           <svg
@@ -62,9 +80,9 @@ export function ButtonSubmitCheckOut({
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="h-5 w-5 mr-2"
           >
             <rect width="20" height="14" x="2" y="5" rx="2"></rect>
