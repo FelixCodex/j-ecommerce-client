@@ -336,7 +336,6 @@ export default function Checkout() {
                           name="phone"
                           required
                           value={formData.phoneNumber}
-                          callingCode={formData.callingCode}
                           setValue={(value) =>
                             updateFormField("phoneNumber", value)
                           }
@@ -348,6 +347,7 @@ export default function Checkout() {
                             COUNTRIES as {
                               id: number;
                               slug: string;
+                              slugn: string;
                               callingCode: number;
                             }[]
                           }

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface InputInterface {
   label: string;
   id: string;
@@ -6,9 +8,8 @@ interface InputInterface {
   required: boolean;
   value: string;
   setValue: (values: string) => void;
-  callingCode: string;
   setCallingCode: (values: string) => void;
-  countries: { id: number; slug: string; callingCode: number }[];
+  countries: { id: number; slug: string; slugn: string; callingCode: number }[];
 }
 
 export function InputSelectPhone({
@@ -19,10 +20,10 @@ export function InputSelectPhone({
   disabled,
   value,
   setValue,
-  callingCode,
   setCallingCode,
   countries,
 }: InputInterface) {
+  const [slugnValue, setSlugN] = useState(countries[0].slugn);
   return (
     <div>
       <label
@@ -35,17 +36,23 @@ export function InputSelectPhone({
         <select
           id={id}
           name={name}
-          className="w-1/6 min-w-[92px] px-3 py-2 border-t border-l border-b bg-[--bg_prim] border-[--border_light_500] text-[--text_light_0] appearance-none rounded-tl-md rounded-bl-md focus:z-50 focus:outline-none focus:ring-2 focus:ring-[--brand_color]"
-          value={callingCode}
+          className="w-1/6 min-w-[5.75rem] px-3 py-2 border-t border-l border-b bg-[--bg_prim] border-[--border_light_500] text-[--text_light_0] appearance-none rounded-tl-md rounded-bl-md focus:z-50 focus:outline-none focus:ring-2 focus:ring-[--brand_color]"
+          value={slugnValue}
           disabled={disabled}
-          onChange={(e) => setCallingCode(e.target.value)}
+          onChange={(e) => {
+            const code =
+              countries.find((el) => el.slugn == e.target.value)?.callingCode ??
+              1;
+            setCallingCode(`${code}`);
+            setSlugN(e.target.value);
+          }}
         >
           {countries
             .sort((a, b) => a.slug.localeCompare(b.slug))
             .map((country) => (
               <option
                 key={"spnc-chr-" + country.id}
-                value={`${country.callingCode}`}
+                value={`${country.slugn}`}
                 className="flex justify-between"
               >
                 {country.slug} +{country.callingCode}
