@@ -49,14 +49,14 @@ export function Navbar() {
 	return (
 		<nav className='fixed top-0 z-[400] w-full bg-[--bg_sec]'>
 			<div className='mx-auto px-4 bg-[--bg_sec] w-full relative z-20'>
-				<div className='flex justify-between items-center h-16'>
-					<Link
+				<div className='flex justify-end items-center h-16'>
+					{/* <Link
 						to='/'
 						className='font-bold text-xl text-[--brand_color]'
 						onClick={() => setMobileLinksShown(false)}
 					>
 						<span>{BRANDNAME}</span>
-					</Link>
+					</Link> */}
 
 					<div className='flex items-center justify-end gap-6 -ml-5'>
 						<div className='hidden md:flex items-center relative space-x-7'>

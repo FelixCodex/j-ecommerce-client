@@ -325,6 +325,10 @@ export const LANGUAGE = {
 			es: 'Adquirir',
 			en: 'Acquire',
 		},
+		SAVED_DASH: {
+			es: 'Guardado en tu perfil',
+			en: 'Saved in your Dashboard',
+		},
 		DOWNLOAD: {
 			es: 'Descargar',
 			en: 'Download',
