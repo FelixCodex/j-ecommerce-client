@@ -44,7 +44,7 @@ export const monthsEs = [
 export const LANGUAGE = {
 	WELCOME: {
 		HERO_WELCOME: {
-			es: 'Bienvenido a',
+			es: 'Bienvenido a mi',
 			en: 'Welcome to my',
 		},
 		HERO_DESCRIPTION: {
@@ -56,8 +56,8 @@ export const LANGUAGE = {
 			en: 'Get Started',
 		},
 		HERO_BUTTON_SEE: {
-			es: 'Ver nuestros productos',
-			en: 'See our products',
+			es: 'Ver mis productos',
+			en: 'See my products',
 		},
 		HERO_BUTTON_CONTACT: {
 			es: 'Contactar',
