@@ -45,7 +45,7 @@ export const LANGUAGE = {
 	WELCOME: {
 		HERO_WELCOME: {
 			es: 'Bienvenido a',
-			en: 'Welcome to',
+			en: 'Welcome to my',
 		},
 		HERO_DESCRIPTION: {
 			es: 'Descubre un mundo de contenido digital premium. Explora, descarga y da vida a tus ideas con arte 3D hecho con corazón.',
@@ -176,8 +176,8 @@ export const LANGUAGE = {
 	},
 	STORE: {
 		TITLE: {
-			es: 'Nuestros productos',
-			en: 'Our Products',
+			es: 'Productos',
+			en: 'Products',
 		},
 		LOADING: {
 			es: 'Cargando productos...',
