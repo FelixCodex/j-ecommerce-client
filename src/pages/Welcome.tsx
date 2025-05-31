@@ -44,20 +44,20 @@ export default function Welcome() {
 								</span>
 							</h1>
 							<p className='text-[11rem] sm:text-[18rem] md:text-[21rem] lg:text-[26rem] leading-[10rem] sm:leading-[16rem] md:leading-[22rem] font-bold text-[--text_light_300] max-w-7xl mx-auto'>
-								<span className='v1 fill-transp bg-clip-text bg-cover font-["Black_Han_Sans"]'>
+								<span className='v1 fill-transp bg-clip-text bg-cover font-sans'>
 									A
 								</span>
-								<span className='v2 fill-transp bg-clip-text bg-cover font-["Black_Han_Sans"]'>
+								<span className='v2 fill-transp bg-clip-text bg-cover font-sans'>
 									R
 								</span>
-								<span className='v3 fill-transp bg-clip-text bg-cover font-["Black_Han_Sans"]'>
+								<span className='v3 fill-transp bg-clip-text bg-cover font-sans'>
 									T
 								</span>
 							</p>
 						</header>
 
 						{/* Call to Action Buttons */}
-						<nav className='mt-4 flex justify-center gap-3'>
+						<nav className='mt-6 flex justify-center gap-3'>
 							<div className='relative'>
 								{!logged && (
 									<div className='rounded-full w-full grow-2 h-full top-0 px-6 md:px-4 py-2 flex z-20 bg-[--button] absolute' />

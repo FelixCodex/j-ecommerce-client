@@ -16,7 +16,6 @@ const Settings = lazy(() => import('../pages/Settings.tsx'));
 const Login = lazy(() => import('../pages/Login.tsx'));
 const Register = lazy(() => import('../pages/Register.tsx'));
 const Checkout = lazy(() => import('../pages/Checkout.tsx'));
-const About = lazy(() => import('../pages/About.tsx'));
 const Contact = lazy(() => import('../pages/Contact.tsx'));
 const Cart = lazy(() => import('../pages/Cart.tsx'));
 const ProtectedRoute = lazy(() => import('../routes/ProtectedRoute.tsx'));
@@ -55,14 +54,6 @@ export function AppRouter() {
 							element={
 								<LoadingWrapper onMount={handleLoad}>
 									<Register />
-								</LoadingWrapper>
-							}
-						/>
-						<Route
-							path='/about'
-							element={
-								<LoadingWrapper onMount={handleLoad}>
-									<About />
 								</LoadingWrapper>
 							}
 						/>
