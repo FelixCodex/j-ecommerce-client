@@ -4,7 +4,7 @@ import { UserButton } from './UserButton.tsx';
 import { HLine } from './Elements/HLine.tsx';
 import { useEffect, useRef, useState } from 'react';
 import { useUtils } from '../hooks/useUtils.tsx';
-import { BRANDNAME, LANGUAGE, POSITIONS } from '../consts.ts';
+import { LANGUAGE, POSITIONS } from '../consts.ts';
 import { useAuth } from '../hooks/useAuth.tsx';
 import { usePreferences } from '../hooks/usePreferences.tsx';
 import { DownloadNav } from './DownloadNav.tsx';
@@ -95,7 +95,10 @@ export function Navbar() {
 								setMobileLinksShown(false);
 							}}
 						/>
-						<button className='md:hidden text-[--text_light_0]'>
+						<button
+							className='md:hidden text-[--text_light_0]'
+							aria-label='Menu'
+						>
 							<div
 								className='flex justify-center items-center'
 								onClick={() => setMobileLinksShown(!mobileLinksShown)}
