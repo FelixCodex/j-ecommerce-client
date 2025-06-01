@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: 
-Sitemap: https://tusitio.com/sitemap.xml
+Sitemap: https://javier-david.com/sitemap.xml
