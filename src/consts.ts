@@ -566,8 +566,8 @@ export const LANGUAGE = {
 			en: 'Standard License',
 		},
 		PERSONAL_LICENSE: {
-			es: 'Licencia Estandar Licencia Estandar Licencia Estandar Licencia Estandar Licencia Estandar Licencia Estandar Licencia Estandar',
-			en: 'Standard License Standard License Standard License Standard License Standard License Standard License Standard License Standard License',
+			es: 'Licencia Estandar ',
+			en: 'Standard License ',
 		},
 		PROFESSIONAL: {
 			es: 'Licencia Comercial',
