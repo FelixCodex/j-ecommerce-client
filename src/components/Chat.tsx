@@ -181,7 +181,7 @@ export function Chat() {
 	return (
 		<div
 			className={`${
-				logged ? 'fixed' : 'hidden'
+				logged ? 'fixed' : 'fixed'
 			} bottom-0 right-0 mr-4 mb-[5.6rem] w-[90%] sm:w-auto z-50`}
 		>
 			<div

@@ -127,6 +127,61 @@
   --border_light_800: #1f2937;
   --border_light_900: #111827;*/
 
+	--bg_prim: #1a1a1a;
+	--bg_sec: #232323;
+	--bg_thir: #2e2e2e;
+	--bg_dot: #ffffff12; /* puntos sutiles */
+
+	/* Colores de marca */
+	--brand_color: #d4af37;
+	--brand_color_100: #e0c063;
+	--brand_color_400: #e9d590;
+	--brand_color_800: #f2e2b6;
+	--brand_color_900: #faf1d2;
+	--brand_color_950: #fffbea;
+
+	/* Botones */
+	--button: #d4af37;
+	--button_hover: #b8962e;
+	--button_not_allowed: #5a4b1c;
+
+	--button_purchased: #a83d5c;
+	--button_purchased_hover: #832e48;
+	--button_cart: #4a63e7;
+	--button_cart_hover: #364bbd;
+
+	/* Enlaces */
+	--a: #4a80f0;
+
+	/* Escala de grises oscuros */
+	--bg_light_0: #fafafa;
+	--bg_light_50: #e5e5e5;
+	--bg_light_100: #d0d0d0;
+	--bg_light_200: #a1a1a1;
+	--bg_light_300: #7a7a7a;
+	--bg_light_400: #565656;
+	--bg_light_500: #3c3c3c;
+	--bg_light_600: #2a2a2a;
+	--bg_light_700: #232323;
+	--bg_light_800: #1a1a1a;
+	--bg_light_900: #111;
+
+	/* Textos */
+	--text_light_0: #fafafa;
+	--text_light_50: #e5e5e5;
+	--text_light_100: #d0d0d0;
+	--text_light_200: #a1a1a1;
+	--text_light_300: #7a7a7a;
+	--text_light_400: #565656;
+	--text_light_500: #3c3c3c;
+	--text_light_600: #2a2a2a;
+	--text_light_700: #232323;
+	--text_light_800: #1a1a1a;
+	--text_light_900: #111;
+
+	/* Bordes */
+	--border_light_300: #333;
+
 	--text_dark_prim: #030712;
 	--text_dark_sec: #111827;
 	--text_dark_thir: #374151;

@@ -45,7 +45,7 @@ export const LANGUAGE = {
 	WELCOME: {
 		HERO_WELCOME: {
 			es: 'Bienvenido a mi',
-			en: 'Welcome to my',
+			en: 'Unleash Your Next',
 		},
 		HERO_DESCRIPTION: {
 			es: 'Descubre un mundo de contenido digital premium. Explora, descarga y da vida a tus ideas con arte 3D hecho con corazón.',
