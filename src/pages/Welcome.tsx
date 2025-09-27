@@ -1,4 +1,3 @@
-import { ArrowDown, ArrowRight, CircleDashed } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { IMG_API_URL, LANGUAGE } from '../consts';
 import { useAuth } from '../hooks/useAuth';
@@ -94,7 +93,7 @@ export default function Welcome() {
 }
 
 export function Store() {
-	const { products, loadingProducts } = useProduct();
+	const { products } = useProduct();
 	const { preferences } = usePreferences();
 	const navigate = useNavigate();
 
