@@ -185,7 +185,7 @@ export default function Checkout() {
 				))}
 			</ul>
 		) : (
-			<p className='text-xl text-[--text_light_100]'>
+			<p className='text-xl text-[--light_100]'>
 				{LANGUAGE.CHECKOUT.ANY[preferences.language]}
 			</p>
 		);
@@ -224,25 +224,25 @@ export default function Checkout() {
 							<div className='w-full flex flex-col md:flex-row-reverse md:justify-center md:gap-3'>
 								{/* Order Summary Section */}
 								<aside className='md:bg-[--bg_sec] md:p-6 md:rounded-lg md:shadow-md w-full md:max-w-80 lg:max-w-[22.5rem] flex flex-col max-h-full h-fit mb-6 md:!mb-0'>
-									<h1 className='text-2xl font-bold text-[--text_light_0] mb-8'>
+									<h1 className='text-2xl font-bold text-[--light_0] mb-8'>
 										{LANGUAGE.CHECKOUT.TITLE[preferences.language]}
 									</h1>
 
 									<div>
-										<h2 className='text-xl font-bold text-[--text_light_100] mb-4'>
+										<h2 className='text-xl font-bold text-[--light_100] mb-4'>
 											{LANGUAGE.CHECKOUT.SUMMARY[preferences.language]}
 										</h2>
-										<div className='border-t border-b border-[--border_light_400] py-4'>
-											<div className='max-h-full px-1 overflow-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--bg_light_700] [&::-webkit-scrollbar-thumb]:rounded-md'>
+										<div className='border-t border-b border-[--light_400] py-4'>
+											<div className='max-h-full px-1 overflow-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--light_700] [&::-webkit-scrollbar-thumb]:rounded-md'>
 												{renderItems()}
 											</div>
 										</div>
 										<div className='flex flex-col mt-4'>
-											<div className='font-bold text-lg flex justify-between text-[--text_light_100]'>
+											<div className='font-bold text-lg flex justify-between text-[--light_100]'>
 												<span>
 													{LANGUAGE.CHECKOUT.TOTAL[preferences.language]}
 												</span>
-												<span className='font-bold text-xl text-[--text_light_100]'>
+												<span className='font-bold text-xl text-[--light_100]'>
 													${renderTotal().toFixed(2)}
 												</span>
 											</div>
@@ -281,7 +281,7 @@ export default function Checkout() {
 
 								{/* Payment Form Section */}
 								<section className='md:bg-[--bg_sec] md:p-6 md:rounded-lg md:shadow-md w-full max-w-2xl flex flex-col gap-3'>
-									<h2 className='text-[--text_light_0] text-xl font-bold'>
+									<h2 className='text-[--light_0] text-xl font-bold'>
 										{LANGUAGE.CHECKOUT.PAYMENT_METHODS[preferences.language]}
 									</h2>
 
@@ -326,7 +326,7 @@ export default function Checkout() {
 													value={formData.name}
 													setValue={value => updateFormField('name', value)}
 													disabled={isFormDisabled}
-													placeholder='Jhon'
+													placeholder='Jhon..'
 												/>
 												<InputTextCheckOut
 													label={
@@ -339,7 +339,7 @@ export default function Checkout() {
 													value={formData.lastName}
 													setValue={value => updateFormField('lastName', value)}
 													disabled={isFormDisabled}
-													placeholder='Smith'
+													placeholder='Smith..'
 												/>
 												<InputSelectPhone
 													label={LANGUAGE.CHECKOUT.PHONE[preferences.language]}
@@ -374,7 +374,7 @@ export default function Checkout() {
 													value={formData.address}
 													setValue={value => updateFormField('address', value)}
 													disabled={isFormDisabled}
-													placeholder='Ave. Guadí 232, Barcelona, Barcelona'
+													placeholder='Ave. Guadí 232, Barcelona, Barcelona..'
 												/>
 												<InputCountry
 													label={
@@ -400,7 +400,7 @@ export default function Checkout() {
 														value={formData.city}
 														setValue={value => updateFormField('city', value)}
 														disabled={isFormDisabled}
-														placeholder='Barcelona'
+														placeholder='Barcelona..'
 													/>
 													<InputTextCheckOut
 														label={
@@ -417,7 +417,7 @@ export default function Checkout() {
 															updateFormField('postalCode', value)
 														}
 														disabled={isFormDisabled}
-														placeholder='78622'
+														placeholder='78622..'
 													/>
 												</div>
 											</>
@@ -458,7 +458,7 @@ export default function Checkout() {
 						</div>
 					</div>
 					<footer className='flex mt-4 items-center justify-center'>
-						<p className='text-sm text-[--text_light_200] px-3'>
+						<p className='text-sm text-[--light_200] px-3'>
 							{LANGUAGE.CHECKOUT.TERMS_AND_CONDITIONS[preferences.language]}
 						</p>
 					</footer>

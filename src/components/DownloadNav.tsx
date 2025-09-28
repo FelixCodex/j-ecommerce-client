@@ -80,14 +80,14 @@ function DownloadCard({
 				</div>
 			</div>
 			<div className='flex gap-2 items-center justify-between'>
-				<div className='w-full h-3 bg-[--bg_light_400] overflow-hidden rounded-full'>
+				<div className='w-full h-3 bg-[--light_400] overflow-hidden rounded-full'>
 					<div
 						className='h-full bg-[--button_purchased] transition-[width] rounded-full'
 						style={{ width: `${progress}%` }}
 					></div>
 				</div>
 				<X
-					className='h-7 w-8 p-1 text-[--text_light_50] rounded-full border border-transparent hover:shadow-md hover:hover:bg-[--bg_sec] hover:hover:border-[--border_light_400]'
+					className='h-7 w-8 p-1 text-[--light_50] rounded-full border border-transparent hover:shadow-md hover:hover:bg-[--bg_sec] hover:hover:border-[--light_400]'
 					onClick={() => {
 						controller?.abort();
 					}}
@@ -121,11 +121,9 @@ export function DownloadNav({ className }: { className?: string }) {
 						setIsOpen(!isOpen);
 					}}
 				>
-					<Download className='w-5 h-5 text-[--text_light_900]'></Download>
+					<Download className='w-5 h-5 text-[--light_900]'></Download>
 					<div className='absolute -bottom-2 -left-2 select-none min-w-6 w-fit h-6 flex justify-center items-center bg-[--brand_color] border border-[--bg_prim] p-1 rounded-full'>
-						<p className='text-[--text_light_800] text-xs'>
-							{progressData.length}
-						</p>
+						<p className='text-[--light_800] text-xs'>{progressData.length}</p>
 					</div>
 				</div>
 				<div
@@ -133,19 +131,19 @@ export function DownloadNav({ className }: { className?: string }) {
 						isOpen ? 'translate-x-0' : 'translate-x-[120%]'
 					}`}
 				>
-					<div className='w-full flex justify-between items-center border-b border-[--border_light_300] p-2'>
-						<p className='text-lg font-medium text-[--text_light_100]'>
+					<div className='w-full flex justify-between items-center border-b border-[--light_300] p-2'>
+						<p className='text-lg font-medium text-[--light_100]'>
 							{LANGUAGE.DASHBOARD.DOWNLOADS[preferences.language]} (
 							{progressData.length})
 						</p>
 						<X
-							className='h-9 w-9 p-1 text-[--text_light_50] rounded-full border border-transparent hover:shadow-md hover:hover:bg-[--bg_sec] hover:hover:border-[--border_light_400]'
+							className='h-9 w-9 p-1 text-[--light_50] rounded-full border border-transparent hover:shadow-md hover:hover:bg-[--bg_sec] hover:hover:border-[--light_400]'
 							onClick={() => {
 								setIsOpen(!isOpen);
 							}}
 						></X>
 					</div>
-					<div className='w-full flex flex-col gap-2 max-h-96 overflow-auto items-center p-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--bg_light_400] [&::-webkit-scrollbar-thumb]:rounded-md'>
+					<div className='w-full flex flex-col gap-2 max-h-96 overflow-auto items-center p-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--light_400] [&::-webkit-scrollbar-thumb]:rounded-md'>
 						{progressData.map(el => {
 							return <DownloadCard {...el}></DownloadCard>;
 						})}

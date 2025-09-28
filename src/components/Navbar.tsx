@@ -62,7 +62,7 @@ export function Navbar() {
 						<div className='hidden md:flex items-center relative space-x-7'>
 							<Link
 								to='/'
-								className='text-[--text_light_0] text-md font-medium hover:text-[--brand_color]'
+								className='text-[--light_0] text-md font-medium hover:text-[--brand_color]'
 								onClick={() => {
 									setLineLeftProperties(POSITIONS.Home);
 									setMobileLinksShown(false);
@@ -74,7 +74,7 @@ export function Navbar() {
 							</Link>
 							<Link
 								to='/contact'
-								className='text-[--text_light_0] text-md font-medium hover:text-[--brand_color]'
+								className='text-[--light_0] text-md font-medium hover:text-[--brand_color]'
 								onClick={() => {
 									setLineLeftProperties(POSITIONS.Contact);
 									setMobileLinksShown(false);
@@ -96,7 +96,7 @@ export function Navbar() {
 							}}
 						/>
 						<button
-							className='md:hidden text-[--text_light_0]'
+							className='md:hidden text-[--light_0]'
 							aria-label='Menu'
 						>
 							<div
@@ -121,21 +121,21 @@ export function Navbar() {
 				<div className='flex flex-col justify-center md:hidden gap-1 items-end relative space-x-8'>
 					<Link
 						to='/'
-						className='text-[--text_light_0] hover:text-[--brand_color] text-xl'
+						className='text-[--light_0] hover:text-[--brand_color] text-xl'
 						onClick={() => setMobileLinksShown(!mobileLinksShown)}
 					>
 						<>{LANGUAGE.NAVBAR.HOME[preferences.language]}</>
 					</Link>
 					<Link
 						to='/about'
-						className='text-[--text_light_0] hover:text-[--brand_color] text-xl'
+						className='text-[--light_0] hover:text-[--brand_color] text-xl'
 						onClick={() => setMobileLinksShown(!mobileLinksShown)}
 					>
 						<>{LANGUAGE.NAVBAR.ABOUT[preferences.language]}</>
 					</Link>
 					<Link
 						to='/contact'
-						className='text-[--text_light_0] hover:text-[--brand_color] text-xl'
+						className='text-[--light_0] hover:text-[--brand_color] text-xl'
 						onClick={() => setMobileLinksShown(!mobileLinksShown)}
 					>
 						<>{LANGUAGE.NAVBAR.CONTACT[preferences.language]}</>

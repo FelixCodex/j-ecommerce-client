@@ -28,15 +28,15 @@ function ChatMessageCard({ chat }: { chat: ChatMessage }) {
 		<div
 			className={`relative rounded-lg flex max-w-80 min-h-max h-fit w-fit ${
 				chat.isMessageFromUser == 'true'
-					? 'self-end !rounded-br-none bg-[--brand_color_400] border-transparent shadow-[--shadow_light_500]'
-					: '!rounded-bl-none bg-[--bg_light_900] border-[--border_light_600] shadow-[--shadow_light_600]'
+					? 'self-end !rounded-br-none bg-[--brand_color_400] border-transparent shadow-[--light_200]'
+					: '!rounded-bl-none bg-[--light_50] border-[--light_200] shadow-[--light_200]'
 			} p-2 border shadow-md`}
 		>
 			<p
 				className={`${
 					chat.isMessageFromUser == 'true'
-						? 'text-[--text_light_700]'
-						: 'text-[--text_light_100]'
+						? 'text-[--light_600]'
+						: 'text-[--light_900]'
 				} flex justify-start text-start text-sm`}
 			>
 				{chat.message} {date && <>&emsp;&emsp;&emsp;&emsp;</>}
@@ -45,8 +45,8 @@ function ChatMessageCard({ chat }: { chat: ChatMessage }) {
 				<p
 					className={`${
 						chat.isMessageFromUser == 'true'
-							? 'text-[--text_light_500]'
-							: 'text-[--text_light_400]'
+							? 'text-[--light_500]'
+							: 'text-[--light_400]'
 					} text-sm absolute right-1 bottom-1`}
 				>{`${formatHours(date.getHours())}:${formatMinutes(
 					date.getMinutes() + 2
@@ -55,7 +55,7 @@ function ChatMessageCard({ chat }: { chat: ChatMessage }) {
 			{loadingMessage.find(el => el.id == chat.id) && (
 				<div className='absolute top-1 right-1 items-end justify-end'>
 					<Clock
-						className='text-[--text_light_500]'
+						className='text-[--light_500]'
 						width={13}
 						height={13}
 					></Clock>
@@ -69,8 +69,8 @@ function DateDivisor({ dateS }: { dateS: string }) {
 	const date = new Date(dateS + ' UTC');
 	return (
 		<div className={`relative my-2 flex w-full justify-center items-center`}>
-			<div className='border-b w-[80%] absolute border-[--border_light_500]'></div>
-			<p className='bg-[--bg_light_700] z-10 text-sm px-4 text-[--text_light_400]'>{`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}</p>
+			<div className='border-b w-[80%] absolute border-[--light_200]'></div>
+			<p className='bg-[--light_100] z-10 text-sm px-4 text-[--light_300]'>{`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}</p>
 		</div>
 	);
 }
@@ -191,15 +191,15 @@ export function Chat() {
 			>
 				<div
 					className={`${
-						isChatOpen ? 'flex border border-[--border_light_500]' : 'hidden'
-					} flex-col bg-[--bg_light_900] rounded-lg overflow-hidden w-full h-[37.5rem] max-h-[37.5rem] shadow-m shadow-[--shadow_light_600]`}
+						isChatOpen ? 'flex border border-[--light_400]' : 'hidden'
+					} flex-col bg-[--light_50] rounded-lg overflow-hidden w-full h-[37.5rem] max-h-[37.5rem] shadow-m shadow-[--light_600]`}
 				>
 					<div
-						className={`flex w-full border-b border-[--border_light_600] rounded-t-md h-12 items-center justify-center gap-3 p-2`}
+						className={`flex w-full border-b border-[--light_200] rounded-t-md h-12 items-center justify-center gap-3 p-2`}
 					>
 						<button
 							className={`${
-								isInChat ? 'bg-[--bg_light_600]' : 'hover:bg-[--bg_light_600]'
+								isInChat ? 'bg-[--light_100]' : 'hover:bg-[--light_100]'
 							} flex flex-row justify-center items-center gap-1 rounded-md px-3 py-1 text-sm font-medium`}
 							onClick={() => setIsInChat(true)}
 						>
@@ -208,7 +208,7 @@ export function Chat() {
 						</button>
 						<button
 							className={`${
-								isInChat ? 'hover:bg-[--bg_light_600]' : 'bg-[--bg_light_600]'
+								isInChat ? 'hover:bg-[--light_100]' : 'bg-[--light_100]'
 							} flex flex-row justify-center items-center gap-1 rounded-md px-3 py-1 text-sm font-medium`}
 							onClick={() => setIsInChat(false)}
 						>
@@ -218,7 +218,7 @@ export function Chat() {
 					<div
 						className={`${
 							isInChat ? 'flex' : 'hidden'
-						} h-full bg-[--bg_light_700] flex-col p-3 max-h-full overflow-auto gap-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--bg_light_600] [&::-webkit-scrollbar-thumb]:rounded-md`}
+						} h-full bg-[--light_100] flex-col p-3 max-h-full overflow-auto gap-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--light_400] [&::-webkit-scrollbar-thumb]:rounded-md`}
 						id='chatBox'
 					>
 						<ChatMessageCard
@@ -244,7 +244,7 @@ export function Chat() {
 					<div
 						className={`${
 							isInChat ? 'hidden' : 'flex'
-						} h-full flex-col p-3 max-h-full overflow-auto gap-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--bg_light_500] [&::-webkit-scrollbar-thumb]:rounded-md`}
+						} h-full flex-col p-3 max-h-full overflow-auto gap-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[--light_200] [&::-webkit-scrollbar-thumb]:rounded-md`}
 					>
 						<DropDownTab
 							id='metodos'
@@ -298,12 +298,12 @@ export function Chat() {
 					</div>
 
 					<div
-						className={`w-full bg-[--bg_light_700] ${
+						className={`w-full bg-[--light_100]  ${
 							isInChat ? 'flex' : 'hidden'
 						} h-16 px-3 pb-3 items-center`}
 					>
 						<form
-							className='flex h-full w-full shadow-md shadow-[--shadow_light_500] rounded-lg overflow-hidden border border-[--bg_light_500]'
+							className='flex h-full w-full shadow-md shadow-[--light_200] rounded-lg overflow-hidden'
 							onSubmit={handleChatSubmit}
 						>
 							<div className='flex w-full'>
@@ -314,14 +314,14 @@ export function Chat() {
 									autoComplete='off'
 									value={message}
 									onChange={e => setMessage(e.target.value)}
-									className='w-full rounded-l-lg focus:z-30 focus:outline-none border-0 focus:border focus:border-[--brand_color_400] text-md p-1 px-2 bg-[--bg_light_900]'
+									className='w-full rounded-l-lg focus:z-30 focus:outline-none focus:border focus:border-[--brand_color] border border-r-transparent border-[--light_200] text-md p-1 px-2 bg-[--light_50]'
 									placeholder='Escribe algo...'
 								/>
 								<button
-									className={`h-full w-12 flex justify-center items-center text-[--text_light_0] ${
+									className={`h-full w-12 flex justify-center -ml-px rounded-r-lg items-center border border-l-0 border-[--light_200] text-[--light_900] bg-[--light_50] ${
 										message == undefined
-											? 'hover:text-[--text_light_500]'
-											: 'hover:text-[--brand_color] hover:bg-[--brand_color_800]'
+											? 'hover:text-[--light_500]'
+											: 'hover:text-[--brand_color] hover:bg-[--brand_color_900] '
 									}`}
 								>
 									<Send className='flex justify-center items-center w-7 h-7'></Send>
@@ -330,8 +330,8 @@ export function Chat() {
 						</form>
 					</div>
 				</div>
-				<div
-					className={`absolute border-2 -bottom-[4.6rem] right-0 border-transparent bg-[--button] w-16 h-16 rounded-full flex justify-center items-center transition-transform`}
+				<button
+					className={`absolute border-2 -bottom-[4.6rem] cursor-pointer right-0 border-transparent bg-[--button] w-16 h-16 rounded-full flex justify-center items-center transition-transform`}
 					onClick={() => {
 						setIsChatOpen(!isChatOpen);
 						setNotSeenMessagesToSeen();
@@ -339,7 +339,7 @@ export function Chat() {
 				>
 					{notSeenMessages > 0 && !isChatOpen && (
 						<div className='absolute -top-3 right-0 rounded-full w-6 h-6 bg-[--brand_color] border border-[--bg_prim]'>
-							<div className='w-full h-full flex justify-center items-center text-[--text_light_900]'>
+							<div className='w-full h-full flex justify-center items-center text-[--light_100]'>
 								{notSeenMessages}
 							</div>
 						</div>
@@ -352,11 +352,11 @@ export function Chat() {
 					></MessageSquareIcon>
 
 					<X
-						className={`absolute text-[--text_light_900] w-10 h-10 transition-[opacity] ${
+						className={`absolute text-[--light_0] w-10 h-10 transition-[opacity] ${
 							isChatOpen ? 'opacity-1 rotate-0' : ' opacity-0 -rotate-12'
 						}`}
 					></X>
-				</div>
+				</button>
 			</div>
 		</div>
 	);

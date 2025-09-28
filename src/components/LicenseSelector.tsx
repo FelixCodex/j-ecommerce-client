@@ -21,9 +21,9 @@ function AddButton({
 	return (
 		<div className='flex w-full flex-col 2xl:flex-row gap-2 mt-2'>
 			<button
-				className={`bg-[--button] hover:bg-[--button_hover] items-center w-full justify-center gap-2 px-6 py-3 ${
+				className={`bg-[--button] hover:bg-[--button_hover] items-center w-full justify-center gap-2 px-5 py-3 ${
 					isInCart ? 'hidden' : 'flex'
-				} text-[--text_light_900] rounded-xl  transition-colors`}
+				} text-[--light_900] rounded-xl  transition-colors`}
 				onClick={handleAdd}
 				disabled={loadingSubmit}
 			>
@@ -37,9 +37,9 @@ function AddButton({
 				)}
 			</button>
 			<button
-				className={`bg-[--button_cart] hover:bg-[--button_cart_hover] items-center w-full justify-center gap-2 px-6 py-3 ${
+				className={`bg-[--button_cart] hover:bg-[--button_cart_hover] items-center w-full justify-center gap-2 px-5 py-3 ${
 					isInCart ? 'hidden' : 'flex'
-				} text-[--text_light_900] rounded-xl  transition-colors`}
+				} text-[--light_900] rounded-xl  transition-colors`}
 				onClick={handleNow}
 				disabled={loadingSubmit}
 			>
@@ -85,7 +85,7 @@ export function LicenseSelector({
 	}`;
 	return (
 		<div
-			className={`relative w-full flex-col p-4 rounded-xl h-fit bg-[--brand_color_900] border border-[--brand_color] ${
+			className={`relative w-full flex-col gap-1 p-4 rounded-xl h-fit bg-[--bg_prim] ${
 				isInPurchased
 					? 'hidden'
 					: product.isFree
@@ -98,12 +98,12 @@ export function LicenseSelector({
 			}`}
 		>
 			<div className='flex justify-between items-center'>
-				<h2 className='text-xl font-medium text-[--text_light_50]'>
+				<h2 className='text-xl font-medium text-[--light_50]'>
 					{license == 'personal'
 						? LANGUAGE.PRODUCT.PERSONAL[preferences.language]
 						: LANGUAGE.PRODUCT.PROFESSIONAL[preferences.language]}
 				</h2>
-				<p className='text-[--text_light_50] font-bold text-xl'>
+				<p className='text-[--light_50] font-bold text-xl'>
 					{LANGUAGE.CURRENCIES[preferences.currency]}
 					{(preferences.currency == 'USD'
 						? rate == 1
@@ -114,14 +114,14 @@ export function LicenseSelector({
 				</p>
 			</div>
 			<div className='flex gap-2 mt-1 items-center'>
-				<p className='font-medium text-[--text_light_100]'>
+				<p className='font-medium text-[--light_100]'>
 					{LANGUAGE.PRODUCT.LICENSE[preferences.language]}
 				</p>
 				<div className='h-5 w-5 group relative'>
-					<CircleQuestion className='h-5 w-5'></CircleQuestion>
+					<CircleQuestion className='h-5 w-5 text-[--light_100]'></CircleQuestion>
 					<span
 						id='email-error'
-						className='tooltiptext group-hover:visible after:border-transparent max-w-72 !top-[110%] !left-[-50%] shadow-sm shadow-[--shadow_light_300] border border-[--brand_color] text-[--text_light_0] bg-[--brand_color_950] after:border-r-[--bg_light_800]'
+						className='tooltiptext group-hover:visible after:border-transparent max-w-72 !top-[120%] !left-[-10%] shadow-sm shadow-[--light_300] border border-[--brand_color] text-[--light_0] bg-[--bg_prim] after:border-r-[--light_800]'
 					>
 						{license == 'personal'
 							? LANGUAGE.PRODUCT.PERSONAL_LICENSE[preferences.language]
@@ -131,7 +131,7 @@ export function LicenseSelector({
 			</div>
 			<div>
 				<h2
-					className='cursor-pointer flex items-center justify-between font-medium text-[--text_light_100]'
+					className='cursor-pointer flex items-center justify-between font-medium text-[--light_100]'
 					onClick={() => {
 						setDetailsOpen(!detailsOpen);
 					}}
@@ -146,7 +146,7 @@ export function LicenseSelector({
 				<p
 					className={`${
 						detailsOpen ? 'max-h-8' : 'max-h-0'
-					} transition-[max-height] pl-2 flex w-full font-bold text-[--text_light_100] justify-between duration-500 overflow-hidden`}
+					} transition-[max-height] pl-2 flex w-full font-bold text-[--light_100] justify-between duration-500 overflow-hidden`}
 				>
 					<span>{product.title}</span>
 					<span>.zip / {weight}</span>

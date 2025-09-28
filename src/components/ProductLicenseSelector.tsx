@@ -119,8 +119,8 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
 		<aside
 			className={`bg-[--bg_sec] rounded-xl h-fit w-[--aside_width] [--aside_width:100%] lg:[--aside_width:21.25rem] xl:[--aside_width:25.12rem] 2xl:[--aside_width:30rem] flex lg:sticky lg:top-[5.5rem] flex-col aside`}
 		>
-			<div className='flex p-9 py-7 gap-3 flex-col items-start justify-between border-b border-[--bg_prim]'>
-				<h2 className='text-3xl font-bold text-[--text_light_50] mb-2'>
+			<div className='flex p-7 gap-3 flex-col items-start justify-between border-b border-[--bg_prim]'>
+				<h2 className='text-3xl font-bold text-[--light_50] mb-2'>
 					{product.title}
 				</h2>
 
@@ -172,7 +172,7 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
 							: product.isFree
 							? 'bg-[--button_cart] hover:bg-[--button_cart_hover] flex'
 							: 'hidden'
-					} text-[--text_light_900] rounded-xl  transition-colors`}
+					} text-[--light_900] rounded-xl  transition-colors`}
 					disabled={loadingSubmit}
 					onClick={handleFree}
 				>
@@ -191,7 +191,7 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
 						}`}
 					>
 						<CheckCircle className='h-7 w-7 text-[--good]'></CheckCircle>{' '}
-						<span className='text-xl font-medium text-[--text_light_100]'>
+						<span className='text-xl font-medium text-[--light_100]'>
 							{LANGUAGE.PRODUCT_BUTTON.SAVED_DASH[preferences.language]}
 						</span>
 					</p>
@@ -204,7 +204,7 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
 								: isInCart
 								? 'bg-[--button_cart] hover:bg-[--button_cart_hover] flex'
 								: 'hidden'
-						} text-[--text_light_900] rounded-xl  transition-colors`}
+						} text-[--light_900] rounded-xl  transition-colors`}
 						onClick={() => {
 							if (isInPurchased) {
 								navigate('/dashboard');
@@ -239,22 +239,22 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
 				</div>
 			</div>
 
-			<div className='p-9 pt-7'>
-				<h2 className='text-2xl font-bold text-[--text_light_100] mb-3'>
+			<div className='p-7'>
+				<h2 className='text-2xl font-bold text-[--light_100] mb-3'>
 					{LANGUAGE.PRODUCT.DETAILS[preferences.language]}
 				</h2>
 				<div className='flex flex-col gap-1'>
-					<div className='text-[--text_light_0] text-lg flex justify-between items-center'>
+					<div className='text-[--light_0] text-lg flex justify-between items-center'>
 						<span>{LANGUAGE.PRODUCT.PUBLISHED_AT[preferences.language]}</span>
 						<span>
 							{formatDateString(product.created_at, preferences.language)}
 						</span>
 					</div>
-					<div className='text-[--text_light_0] text-lg flex justify-between items-center'>
+					<div className='text-[--light_0] text-lg flex justify-between items-center'>
 						<span>{LANGUAGE.PRODUCT.WEIGHT[preferences.language]}</span>
 						<div className='rounded-lg py-1 '>{weight}</div>
 					</div>
-					<div className='text-[--text_light_0] text-lg flex justify-between items-center'>
+					<div className='text-[--light_0] text-lg flex justify-between items-center'>
 						<span>{LANGUAGE.PRODUCT.FORMATS[preferences.language]}</span>
 						<div className='rounded-lg py-1 bg-[--bg_prim] shadow-md px-3'>
 							.stl

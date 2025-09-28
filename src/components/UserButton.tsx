@@ -22,13 +22,13 @@ export function UserButton({
 			{logged && (
 				<Link
 					to='/cart'
-					className='-mr-6'
+					className='-mr-[23px]'
 					onClick={onClickEvent}
 				>
 					<button
 						type='button'
 						aria-label={'Cart'}
-						className='rounded-full rounded-r-none px-6 md:px-4 py-2 sm:w-auto flex flex-row items-center justify-center gap-2 border border-transparent text-sm font-medium text-[--text_light_900] bg-[--button] hover:bg-[--button_hover] focus:outline-none focus:z-[100] focus:ring-2 focus:ring-offset-2 focus:ring-[--brand_color]'
+						className='rounded-full rounded-r-none px-6 md:px-4 py-2 sm:w-auto flex flex-row items-center justify-center gap-2 border border-transparent text-sm font-medium text-[--light_900] bg-[--button] hover:bg-[--button_hover] focus:outline-none focus:z-[100] focus:ring-2 focus:ring-offset-2 focus:ring-offset-[--bg_prim] focus:ring-[--brand_color]'
 					>
 						<>
 							<ShoppingCart className='h-5 w-5'></ShoppingCart>{' '}
@@ -56,9 +56,9 @@ export function UserButton({
 					aria-label={loading ? 'Loading' : logged ? 'Dashboard' : 'Login'}
 					className={`${
 						logged
-							? 'rounded-l-none border-l border-l-[--border_light_700]'
+							? 'rounded-l-none border-l border-l-[--light_700]'
 							: 'palpite-1'
-					} px-6 relative rounded-full md:px-4 py-2 w-auto flex z-40 flex-row items-center justify-center gap-2 border border-transparent text-sm font-medium text-[--text_light_900] bg-[--button] hover:bg-[--button_hover] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[--brand_color]`}
+					} px-6 relative rounded-full md:px-4 py-2 w-auto flex z-40 flex-row items-center justify-center gap-2 border border-transparent text-sm font-medium text-[--light_900] bg-[--button] hover:bg-[--button_hover] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[--bg_prim] focus:ring-[--brand_color]`}
 				>
 					{loading ? (
 						<CircleDashed className='h-6 w-6 loader'></CircleDashed>

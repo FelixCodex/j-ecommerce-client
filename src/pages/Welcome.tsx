@@ -13,11 +13,10 @@ export default function Welcome() {
 
 	return (
 		// Contenedor principal: Altura completa, fondo oscuro con degradado sutil
-		<main>
+		<article className=' overflow-x-hidden'>
 			<section
 				id='welcome'
-				className='relative min-h-screen flex items-center justify-center p-6 
-                 bg-[--bg_prim] overflow-hidden'
+				className='relative min-h-screen h-screen flex items-center justify-center overflow-visible p-6 bg-[--bg_bg_prim]'
 			>
 				{/* Fondo Decorativo 1 (Esquina superior derecha): Un 'glow' más sutil y angular para un toque moderno */}
 				<div
@@ -38,7 +37,7 @@ export default function Welcome() {
 					{/* Título Principal (Hero Title) */}
 					<h1 className='text-6xl sm:text-7xl md:text-8xl font-black leading-tight tracking-tighter'>
 						{/* Primera línea: Texto claro y fuerte */}
-						<span className='block text-[--text_light_0]'>
+						<span className='block text-[--light_0]'>
 							{/* {LANGUAGE.WELCOME.HERO_WELCOME[preferences.language]} */}
 							The Digital Foundry of
 						</span>
@@ -53,7 +52,7 @@ export default function Welcome() {
 					</h1>
 
 					{/* Subtítulo / Descripción */}
-					<p className='mt-6 text-xl sm:text-2xl text-[--text_light_200] max-w-3xl mx-auto font-light'>
+					<p className='mt-6 text-xl sm:text-2xl text-[--light_200] max-w-3xl mx-auto font-light'>
 						{/* {LANGUAGE.WELCOME.HERO_SUBTITLE[preferences.language]} */}
 						Get instant access to a curated collection of high-fidelity,
 						ready-to-use 3D models. Built with precision for your next game,
@@ -88,7 +87,7 @@ export default function Welcome() {
 				</div>
 			</section>
 			<Store />
-		</main>
+		</article>
 	);
 }
 
@@ -115,20 +114,20 @@ export function Store() {
 	);
 
 	return (
-		<main
+		<section
 			id='store'
-			className='min-h-screen bg-[--bg_sec] dottedBackground py-16 px-6'
+			className='min-h-screen bg-[--bg_sec] dottedBackground py-8 px-6'
 		>
 			<div className='max-w-6xl mx-auto'>
-				<header className='mb-12 text-center'>
-					<h1 className='text-4xl font-bold text-[--brand_color] tracking-wide'>
+				<header className='mb-12 text-center flex items-center justify-center'>
+					<h1 className='text-4xl font-bold text-[--light_0] tracking-wide bg-[--bg_prim] w-fit py-4 border-b-2 border-[--brand_color]'>
 						{LANGUAGE.STORE.TITLE[preferences.language]}
 					</h1>
 				</header>
 
 				<section>{products ? renderProductGrid(products) : null}</section>
 			</div>
-		</main>
+		</section>
 	);
 }
 
@@ -146,11 +145,11 @@ export function ProductCard({
 		<div
 			onClick={onClick}
 			className='group cursor-pointer flex flex-col rounded-xl overflow-hidden 
-                 bg-[--bg_thir] shadow-[--shadow_light_500] hover:shadow-xl 
+                 bg-[--bg_thir] shadow-[--light_500] hover:shadow-xl 
                  transform hover:-translate-y-1 transition-all duration-300'
 		>
 			{/* Imagen */}
-			<div className='aspect-video bg-[--bg_light_700]'>
+			<div className='aspect-video bg-[--light_700]'>
 				<img
 					src={`${IMG_API_URL}${product.image}.webp`}
 					alt={product.title}
@@ -159,8 +158,8 @@ export function ProductCard({
 			</div>
 
 			{/* Contenido */}
-			<div className='p-4 flex justify-between items-center'>
-				<h3 className='font-semibold text-lg text-[--text_light_0] group-hover:text-[--brand_color] transition-colors'>
+			<div className='p-4 flex h-full justify-between items-center'>
+				<h3 className='font-semibold text-lg text-[--light_0] group-hover:text-[--brand_color] transition-colors'>
 					{product.title}
 				</h3>
 				<div className='text-right font-bold text-[--brand_color]'>
@@ -168,7 +167,7 @@ export function ProductCard({
 						<span>{LANGUAGE.PRODUCT_BUTTON.FREE[preferences.language]}</span>
 					) : (
 						<>
-							<span className='block text-sm text-[--text_light_200]'>
+							<span className='block text-sm text-[--light_200]'>
 								{LANGUAGE.PRODUCT_BUTTON.FROM[preferences.language]}
 							</span>
 							<span className='text-lg'>
@@ -218,12 +217,12 @@ export function ProductCard({
 // 					<article className='text-center'>
 // 						{/* Hero Header */}
 // 						<header>
-// 							<h1 className='text-4xl font-extrabold text-[--text_light_0] sm:text-5xl md:text-6xl'>
+// 							<h1 className='text-4xl font-extrabold text-[--light_0] sm:text-5xl md:text-6xl'>
 // 								<span className='block'>
 // 									{LANGUAGE.WELCOME.HERO_WELCOME[preferences.language]}
 // 								</span>
 // 							</h1>
-// 							<p className='text-[11rem] sm:text-[18rem] md:text-[21rem] lg:text-[26rem] leading-[10rem] sm:leading-[16rem] md:leading-[22rem] font-bold text-[--text_light_300] max-w-7xl mx-auto'>
+// 							<p className='text-[11rem] sm:text-[18rem] md:text-[21rem] lg:text-[26rem] leading-[10rem] sm:leading-[16rem] md:leading-[22rem] font-bold text-[--light_300] max-w-7xl mx-auto'>
 // 								<span className='v1 fill-transp bg-clip-text bg-cover font-sans'>
 // 									A
 // 								</span>
@@ -247,7 +246,7 @@ export function ProductCard({
 // 									className={`
 //                     inline-flex group items-center relative px-6 py-3 border z-40
 //                     border-transparent text-base font-medium rounded-full
-//                     text-[--text_light_900] bg-[--button] hover:bg-[--button_hover]
+//                     text-[--light_900] bg-[--button] hover:bg-[--button_hover]
 //                     transition-colors duration-200
 //                     ${!logged ? 'palpite-1' : ''}
 //                   `}
@@ -269,8 +268,8 @@ export function ProductCard({
 // 							<Link
 // 								to='/contact'
 // 								className='inline-flex items-center px-6 py-3 border
-//                   border-[--border_light_300] text-base font-medium rounded-full
-//                   text-[--text_light_100] bg-[--bg_light_900] hover:bg-[--bg_light_700]
+//                   border-[--light_300] text-base font-medium rounded-full
+//                   text-[--light_100] bg-[--light_900] hover:bg-[--light_700]
 //                   transition-colors duration-200'
 // 							>
 // 								{LANGUAGE.WELCOME.HERO_BUTTON_CONTACT[preferences.language]}

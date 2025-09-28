@@ -154,33 +154,17 @@
 	--a: #4a80f0;
 
 	/* Escala de grises oscuros */
-	--bg_light_0: #fafafa;
-	--bg_light_50: #e5e5e5;
-	--bg_light_100: #d0d0d0;
-	--bg_light_200: #a1a1a1;
-	--bg_light_300: #7a7a7a;
-	--bg_light_400: #565656;
-	--bg_light_500: #3c3c3c;
-	--bg_light_600: #2a2a2a;
-	--bg_light_700: #232323;
-	--bg_light_800: #1a1a1a;
-	--bg_light_900: #111;
-
-	/* Textos */
-	--text_light_0: #fafafa;
-	--text_light_50: #e5e5e5;
-	--text_light_100: #d0d0d0;
-	--text_light_200: #a1a1a1;
-	--text_light_300: #7a7a7a;
-	--text_light_400: #565656;
-	--text_light_500: #3c3c3c;
-	--text_light_600: #2a2a2a;
-	--text_light_700: #232323;
-	--text_light_800: #1a1a1a;
-	--text_light_900: #111;
-
-	/* Bordes */
-	--border_light_300: #333;
+	--light_0: #fafafa;
+	--light_50: #e5e5e5;
+	--light_100: #d0d0d0;
+	--light_200: #a1a1a1;
+	--light_300: #7a7a7a;
+	--light_400: #565656;
+	--light_500: #3c3c3c;
+	--light_600: #2a2a2a;
+	--light_700: #232323;
+	--light_800: #1a1a1a;
+	--light_900: #111;
 
 	--text_dark_prim: #030712;
 	--text_dark_sec: #111827;
