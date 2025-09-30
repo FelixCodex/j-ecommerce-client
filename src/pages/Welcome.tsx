@@ -16,7 +16,7 @@ export default function Welcome() {
 		<article className=' overflow-x-hidden'>
 			<section
 				id='welcome'
-				className='relative min-h-screen h-screen flex pt-[18vh] md:pt-6 items-start md:items-center justify-center overflow-visible p-6 bg-[--bg_bg_prim]'
+				className='relative min-h-screen h-screen flex pt-[15vh] md:pt-6 items-start md:items-center justify-center overflow-visible p-6 bg-[--bg_bg_prim]'
 			>
 				{/* Fondo Decorativo 1 (Esquina superior derecha): Un 'glow' más sutil y angular para un toque moderno */}
 				<div
