@@ -39,7 +39,7 @@ export function ProductGallery({ product }: { product: Product }) {
 				/>
 			</div>
 			<div className='flex'>
-				<div className='flex justify-center items-center p-2'>
+				<div className='flex justify-center items-center md:p-2'>
 					<button onClick={handleGalleryScrollLeft}>
 						<ChevronLeft className='w-9 h-9 p-1 text-[--light_0] border border-transparent hover:hover:bg-[--bg_sec] hover:hover:border-[--light_400] transition-colors rounded-full'></ChevronLeft>
 					</button>
@@ -75,7 +75,7 @@ export function ProductGallery({ product }: { product: Product }) {
 						<></>
 					)}
 				</div>
-				<div className='flex justify-center items-center p-2'>
+				<div className='flex justify-center items-center md:p-2'>
 					<button onClick={handleGalleryScrollRight}>
 						<ChevronRight className='w-9 h-9 p-1 text-[--light_0] transition-colors border border-transparent hover:hover:bg-[--bg_sec] hover:hover:border-[--light_400] rounded-full'></ChevronRight>
 					</button>

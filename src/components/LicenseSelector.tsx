@@ -21,9 +21,9 @@ function AddButton({
 	return (
 		<div className='flex w-full flex-col 2xl:flex-row gap-2 mt-2'>
 			<button
-				className={`bg-[--button] hover:bg-[--button_hover] items-center w-full justify-center gap-2 px-5 py-3 ${
+				className={`bg-[--button_cart] hover:bg-[--button_cart_hover] items-center w-full justify-center gap-2 px-5 py-3 ${
 					isInCart ? 'hidden' : 'flex'
-				} text-[--light_900] rounded-xl  transition-colors`}
+				} text-[--light_900] rounded-xl font-medium transition-colors`}
 				onClick={handleAdd}
 				disabled={loadingSubmit}
 			>
@@ -37,9 +37,9 @@ function AddButton({
 				)}
 			</button>
 			<button
-				className={`bg-[--button_cart] hover:bg-[--button_cart_hover] items-center w-full justify-center gap-2 px-5 py-3 ${
+				className={`bg-[--button_cart_now] hover:bg-[--button_cart_now_hover] items-center w-full justify-center gap-2 px-5 py-3 ${
 					isInCart ? 'hidden' : 'flex'
-				} text-[--light_900] rounded-xl  transition-colors`}
+				} text-white rounded-xl font-medium transition-colors`}
 				onClick={handleNow}
 				disabled={loadingSubmit}
 			>

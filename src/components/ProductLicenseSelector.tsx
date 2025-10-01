@@ -119,7 +119,7 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
 		<aside
 			className={`bg-[--bg_sec] rounded-xl h-fit w-[--aside_width] [--aside_width:100%] lg:[--aside_width:21.25rem] xl:[--aside_width:25.12rem] 2xl:[--aside_width:30rem] flex lg:sticky lg:top-[5.5rem] flex-col aside`}
 		>
-			<div className='flex p-7 gap-3 flex-col items-start justify-between border-b border-[--bg_prim]'>
+			<div className='flex p-5 md:p-7 gap-3 flex-col items-start justify-between border-b border-[--bg_prim]'>
 				<h2 className='text-3xl font-bold text-[--light_50] mb-2'>
 					{product.title}
 				</h2>
@@ -170,9 +170,9 @@ export function ProductLicenseSelector({ product }: { product: Product }) {
 						isInPurchased
 							? 'hidden'
 							: product.isFree
-							? 'bg-[--button_cart] hover:bg-[--button_cart_hover] flex'
+							? 'bg-[--button_cart_now] hover:bg-[--button_cart_hover_now] flex'
 							: 'hidden'
-					} text-[--light_900] rounded-xl  transition-colors`}
+					} text-white font-medium rounded-xl  transition-colors`}
 					disabled={loadingSubmit}
 					onClick={handleFree}
 				>

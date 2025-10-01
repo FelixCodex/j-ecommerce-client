@@ -28,7 +28,7 @@ export default function Product() {
 				{loadingProducts ? (
 					<Loading></Loading>
 				) : product ? (
-					<section className='p-8 flex w-full gap-2'>
+					<section className='p-4 md:p-8 flex w-full gap-2'>
 						<div className='w-full grid grid-dis gap-6 grid-cols-1 lg:grid-cols-[1fr,var(--aside_width)]'>
 							<ProductGallery product={product}></ProductGallery>
 

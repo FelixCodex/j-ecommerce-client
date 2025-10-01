@@ -3,69 +3,7 @@
 	--wrong: #ff5d5d;
 	--aside_width: 480px;
 
-	--bg_prim: #fff7e6;
-	--bg_sec: #f8eccdcc;
-	--bg_thir: #f5e1b0cc;
-
-	--bg_dot: #9999991a;
-
-	--brand_color: #645331;
-	--brand_color_100: #7c673e;
-	--brand_color_400: #af9561;
-	--brand_color_800: #dfc591;
-	--brand_color_900: #f1dcb5;
-	--brand_color_950: #fae7c3;
-
-	--button: #645331;
-	--button_hover: #504122;
-	--button_not_allowed: #3f3218;
-
-	--bg_protected_loading: #f7eed7a4;
-	--bg_protected_loading_mover: #e7d095b9;
-
-	--button_purchased: #83374e;
-	--button_purchased_hover: #692c3e;
-	--button_cart: #4f6df1;
-	--button_cart_hover: #3e58cc;
-
-	--a: #263784;
-
-	--bg_light_0: #111827;
-	--bg_light_50: #1f2937;
-	--bg_light_100: #374151;
-	--bg_light_200: #4b5563;
-	--bg_light_300: #6b7280;
-	--bg_light_400: #9ca3af;
-	--bg_light_500: #d1d5db;
-	--bg_light_600: #e5e7eb;
-	--bg_light_700: #f3f4f6;
-	--bg_light_800: #f9fafb;
-	--bg_light_900: #fff;
-
-	--shadow_light_0: #111827;
-	--shadow_light_50: #1f2937;
-	--shadow_light_100: #374151;
-	--shadow_light_200: #4b5563;
-	--shadow_light_300: #6b7280;
-	--shadow_light_400: #9ca3af;
-	--shadow_light_500: #d1d5db;
-	--shadow_light_600: #e5e7eb;
-	--shadow_light_700: #f3f4f6;
-	--shadow_light_800: #f9fafb;
-	--shadow_light_900: #fff;
-
-	--text_light_0: #111827;
-	--text_light_50: #1f2937;
-	--text_light_100: #374151;
-	--text_light_200: #4b5563;
-	--text_light_300: #6b7280;
-	--text_light_400: #9ca3af;
-	--text_light_500: #d1d5db;
-	--text_light_600: #e5e7eb;
-	--text_light_700: #f3f4f6;
-	--text_light_800: #f9fafb;
-	--text_light_900: #fff;
-
+	/*  OLD
 	--border_light_0: #111827;
 	--border_light_50: #1f2937;
 	--border_light_100: #374151;
@@ -77,55 +15,7 @@
 	--border_light_700: #f3f4f6;
 	--border_light_800: #f9fafb;
 	--border_light_900: #fff;
-
-	/* 
-  --text_light_0: #fff;
-  --text_light_50: #f9fafb;
-  --text_light_100: #f3f4f6;
-  --text_light_200: #e5e7eb;
-  --text_light_300: #d1d5db;
-  --text_light_400: #9ca3af;
-  --text_light_500: #6b7280;
-  --text_light_600: #4b5563;
-  --text_light_700: #374151;
-  --text_light_800: #1f2937;
-  --text_light_900: #111827; 
-
-  --shadow_light_0: #fff;
-  --shadow_light_50: #f9fafb;
-  --shadow_light_100: #f3f4f6;
-  --shadow_light_200: #e5e7eb;
-  --shadow_light_300: #d1d5db;
-  --shadow_light_400: #9ca3af;
-  --shadow_light_500: #6b7280;
-  --shadow_light_600: #4b5563;
-  --shadow_light_700: #374151;
-  --shadow_light_800: #1f2937;
-  --shadow_light_900: #111827; 
-  
-  --bg_light_0: #fff;
-  --bg_light_50: #f9fafb;
-  --bg_light_100: #f3f4f6;
-  --bg_light_200: #e5e7eb;
-  --bg_light_300: #d1d5db;
-  --bg_light_400: #9ca3af;
-  --bg_light_500: #6b7280;
-  --bg_light_600: #4b5563;
-  --bg_light_700: #374151;
-  --bg_light_800: #1f2937;
-  --bg_light_900: #111827;
-  
-  --border_light_0: #fff;
-  --border_light_50: #f9fafb;
-  --border_light_100: #f3f4f6;
-  --border_light_200: #e5e7eb;
-  --border_light_300: #d1d5db;
-  --border_light_400: #9ca3af;
-  --border_light_500: #6b7280;
-  --border_light_600: #4b5563;
-  --border_light_700: #374151;
-  --border_light_800: #1f2937;
-  --border_light_900: #111827;*/
+	*/
 
 	--bg_prim: #1a1a1a;
 	--bg_sec: #232323;
@@ -145,10 +35,14 @@
 	--button_hover: #b8962e;
 	--button_not_allowed: #5a4b1c;
 
-	--button_purchased: #a83d5c;
-	--button_purchased_hover: #832e48;
-	--button_cart: #4a63e7;
-	--button_cart_hover: #364bbd;
+	--button_purchased: #d97706;
+	--button_purchased_hover: #b45309;
+
+	--button_cart: #f4c542;
+	--button_cart_hover: #d6a820;
+
+	--button_cart_now: #2563eb;
+	--button_cart_now_hover: #1d4ed8;
 
 	/* Enlaces */
 	--a: #4a80f0;
