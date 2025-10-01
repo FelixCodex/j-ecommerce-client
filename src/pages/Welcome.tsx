@@ -6,6 +6,7 @@ import '../App.css';
 import { useProduct } from '../hooks/useProduct';
 import { Product } from '../types';
 import { useCart } from '../hooks/useCart';
+import { scrollToElem } from '../utils';
 
 export default function Welcome() {
 	const { logged } = useAuth(); // Asumo que useAuth está definido
@@ -14,7 +15,7 @@ export default function Welcome() {
 	return (
 		// Contenedor principal: Altura completa, fondo oscuro con degradado sutil
 		<article className=' overflow-x-hidden'>
-			<section
+			<article
 				id='welcome'
 				className='relative min-h-screen h-screen flex pt-[14vh] md:pt-6 items-start md:items-center justify-center overflow-visible p-6 bg-[--bg_bg_prim]'
 			>
@@ -68,9 +69,10 @@ export default function Welcome() {
                        bg-[--brand_color] text-[--bg_prim] shadow-2xl shadow-[--brand_color]/30
                        hover:bg-[--brand_color_100] hover:shadow-[--brand_color_100]/50
                        transform hover:scale-[1.03] transition-all duration-300 ease-in-out'
+							onClick={() => (logged ? scrollToElem('store') : null)}
 						>
 							{logged
-								? LANGUAGE.WELCOME.HERO_BUTTON_SEE[preferences.language] // "Ver Creaciones"
+								? LANGUAGE.WELCOME.HERO_BUTTON_SEE[preferences.language]
 								: LANGUAGE.WELCOME.HERO_BUTTON_START[preferences.language]}
 						</Link>
 
@@ -85,7 +87,7 @@ export default function Welcome() {
 						</Link>
 					</div>
 				</div>
-			</section>
+			</article>
 			<Store />
 		</article>
 	);
@@ -114,9 +116,9 @@ export function Store() {
 	);
 
 	return (
-		<section
+		<article
 			id='store'
-			className='min-h-screen bg-[--bg_sec] dottedBackground py-8 px-6'
+			className='min-h-screen bg-[--bg_sec] dottedBackground py-8 px-6 pt-16'
 		>
 			<div className='max-w-6xl mx-auto'>
 				<header className='mb-12 text-center flex items-center justify-center'>
@@ -127,7 +129,7 @@ export function Store() {
 
 				<section>{products ? renderProductGrid(products) : null}</section>
 			</div>
-		</section>
+		</article>
 	);
 }
 

@@ -77,7 +77,7 @@ export function Store() {
 	};
 
 	return (
-		<main
+		<section
 			className='min-h-screen dottedBackground py-12 relative'
 			id='store'
 			role='main'
@@ -98,6 +98,6 @@ export function Store() {
 					</div>
 				</section>
 			</div>
-		</main>
+		</section>
 	);
 }
