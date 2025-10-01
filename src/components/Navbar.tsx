@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react';
+import { Contact, Home, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { UserButton } from './UserButton.tsx';
 import { HLine } from './Elements/HLine.tsx';
@@ -116,29 +116,29 @@ export function Navbar() {
 			<div
 				className={`${
 					mobileLinksShown ? 'translate-y-0' : '-translate-y-[200%]'
-				} w-full absolute bg-[--bg_sec] h-auto p-4 z-0 transition-transform duration-300`}
+				} w-full absolute bg-[--bg_sec] h-auto p-5 pt-1 z-0 transition-transform duration-300`}
 			>
-				<div className='flex flex-col justify-center md:hidden gap-1 items-end relative space-x-8'>
+				<div className='flex flex-col justify-center md:hidden gap-2 items-end relative space-x-8'>
+					<span className=''></span>
 					<Link
 						to='/'
-						className='text-[--light_0] hover:text-[--brand_color] text-xl'
+						className='text-[--light_0] flex cursor-pointer items-center gap-2 hover:text-[--brand_color]'
 						onClick={() => setMobileLinksShown(!mobileLinksShown)}
 					>
-						<>{LANGUAGE.NAVBAR.HOME[preferences.language]}</>
-					</Link>
-					<Link
-						to='/about'
-						className='text-[--light_0] hover:text-[--brand_color] text-xl'
-						onClick={() => setMobileLinksShown(!mobileLinksShown)}
-					>
-						<>{LANGUAGE.NAVBAR.ABOUT[preferences.language]}</>
+						<span className='text-2xl'>
+							{LANGUAGE.NAVBAR.HOME[preferences.language]}
+						</span>
+						<Home className='text-xl' />
 					</Link>
 					<Link
 						to='/contact'
-						className='text-[--light_0] hover:text-[--brand_color] text-xl'
+						className='text-[--light_0] flex cursor-pointer items-center gap-2 hover:text-[--brand_color]'
 						onClick={() => setMobileLinksShown(!mobileLinksShown)}
 					>
-						<>{LANGUAGE.NAVBAR.CONTACT[preferences.language]}</>
+						<span className='text-2xl'>
+							{LANGUAGE.NAVBAR.CONTACT[preferences.language]}
+						</span>
+						<Contact className='text-xl' />
 					</Link>
 				</div>
 			</div>
